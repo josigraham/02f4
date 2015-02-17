@@ -1,45 +1,226 @@
-<!doctype html>
-<html>
-<head>
-
-<title>☁  Welcome</title>
-<link rel="icon" type="image/gif" href="http://s12.postimg.org/8zekol099/favicon1.gif"/>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-<link href="styles.css" rel="stylesheet"> 
-
-<style>
-p {
-  background-color: #00ffff;
-  font-family: Impact, Haettenschweiler, “Arial”, sans-serif; 
-}
-</style>
-</head>
+<script>
+    $(document).ready(function() {
+       $('.t').click(function() {
+          $('.same').fadeToggle(400);
+       });
+       $('.ab').click(function() {
+           $("#description").slideToggle(500);
+       });
+        $('.li').click(function() {
+           $("#links").slideToggle(500);
+       });
+    });
+</script>
+ 
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Pontano+Sans::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+ 
+  <script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+//
+$('a.poplight[href^=#]').click(function() {
+var popID = $(this).attr('rel'); //Get Popup Name
+var popURL = $(this).attr('href'); //Get Popup href to define size
+var query= popURL.split('?');
+var dim= query[1].split('&');
+var popWidth = dim[0].split('=')[1]; //Gets the first query string value
+$('#' + popID).fadeIn().css({ 'width': Number( popWidth ) }).prepend('<a href="#" class="close"></a>');
+var popMargTop = ($('#' + popID).height() + 80) / 2;
+var popMargLeft = ($('#' + popID).width() + 80) / 2;
+//Apply Margin to Popup
+$('#' + popID).css({
+'margin-top' : -popMargTop,
+'margin-left' : -popMargLeft
+});
+$('body').append('<div id="fade"></div>');
+$('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer - .css({'filter' : 'alpha(opacity=80)'})
+return false;
+});
+$('a.close, #fade').live('click', function() {
+$('#fade , .popup_block').fadeOut(function() {
+$('#fade, a.close').remove(); //fade them both out
+});
+return false;
+});
+});
+</script>
+ 
 <body>
-
-<div id="top"><a href="index.html">Home</a> <a href="aboutme.html">About</a>
-<a href="contact.html">Contact</a> </div>
-
-      <br><br><center>
-      <img src="http://s3.postimg.org/c85wu5km9/logo2_A.png" width="450">
-    </center>
-  
-      <h1>
-         Welcome
-      </h1>
-<h2>
- I'm currently studying graphic design in Miami Florida. Click the "About" tag for more information.
-  <marquee behavior="alternate">Thanks for dropping by!</marquee>
-              
-</h2>
-
-
-
-</header>
+ 
+<div id="con">
+ 
+<div id="sidebar">
+<div id="blogt">{Title}</div><br>
+<div id="sidebarim"><img src="{image:Sidebar Image}"></div>
+    <div class="otherlinks">
+<a href="/">home</a> &#9830;
+<a href="#?w=500" rel="box2" class="poplight">message</a> &#9830;
+<a class="ab">description</a> &#9830;
+<a class="li">links</a></div>
+<div id="description">{Description}</div>
+ 
+<div id="links">
+<a href="{text:link1 url}">{text:link1 name}</a>
+<a href="{text:link2 url}">{text:link2 name}</a>
+<a href="{text:link3 url}">{text:link3 name}</a>
+<a href="{text:link4 url}">{text:link4 name}</a>
+<a href="{text:link5 url}">{text:link5 name}</a>
+</div>
+ 
+ 
+ 
+ 
+ 
+</div>
+ 
+ 
+ 
+ 
+<div id="entries">
+ 
+{block:Posts}
+<div id="posts">
+ 
+ 
+{block:Quote}
+ 
+ 
+<div id="titlequote">“{Quote}”</div>
+{block:Source}<div id="source">&mdash; {Source}</div>{/block:Source}
+{/block:Quote}
+ 
+ 
+ 
+{block:Text}
+ 
+{block:Title}
+<div id="title">{Title}</div>{/block:Title}
+{Body}
+{/block:Text}
+ 
+{block:Link}
+<div id="title"><a href="{URL}">{Name}</a></div>{block:Description}{Description}{/block:Description}
+{/block:Link}
+ 
+{block:Chat}
+{block:Title}
+<h1>{Title}</h1>
+{/block:Title}
+<div class="chat">
+<ol>{block:Lines}
+<li class="line {Alt}">
+{block:Label}
+<span class="label">
+{Label}</span>
+{/block:Label}{Line}</li>
+{/block:Lines}
+</ol></div>
+{/block:Chat}
+ 
+{block:Photo}
+{LinkOpenTag}<img src="{block:if500pxposts}{PhotoURL-500}{/block:if500pxposts}
+{block:ifnot500pxposts}{PhotoURL-400}{/block:ifnot500pxposts}"
+{block:if500pxposts}width="500"{/block:if500pxposts}
+{block:ifnot500pxposts}width="400"{/block:ifnot500pxposts}
+>{LinkCloseTag}
+{/block:Photo}
+ 
+{block:Photoset}
+{block:if500pxposts}{Photoset-500}{/block:if500pxposts} {block:ifnot500pxposts}{Photoset-400}{/block:ifnot500pxposts}
+{/block:Photoset}
+ 
+{block:Video}
+{block:if500pxposts}{Video-500}{/block:if500pxposts}{block:ifnot500pxposts}{Video-400}{/block:ifnot500pxposts}
+{/block:Video}
+ 
+{block:Audio}
+<div class="player">{AudioPlayerWhite}</div>
+<div class="audioinfo">
+{block:TrackName}{TrackName}{/block:TrackName}{block:Artist}<br>{Artist}{/block:Artist}
+</div>
+{/block:Audio}
+ 
+{block:Answer}
+<div class="q">
+<div class="as">{Asker} said: </div>
+{Question}</div>
+<div class="a">{Answer}</div>
+{/block:Answer}
+ 
+{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+ 
+{block:Date}
+<div id="permalink">
+<a href="{Permalink}" >{12Hour}:{Minutes} {AmPm}</a>{block:NoteCount}<a href="{Permalink}">+ {NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}<a href="{ReblogParentURL}" title="{ReblogParentName}">via</a>{block:ContentSource}<a href="{ReblogRootURL}" title="{ReblogRootName}">source</a>{/block:ContentSource}{/block:RebloggedFrom}
+{block:HasTags}<div class="tags">{block:Tags}<a href="{TagUrl}">#{Tag}</a>{/block:Tags}</div>{/block:HasTags}
+</div>
+{/block:Date}
+ 
+ 
+ 
+</div>
+ 
+ 
+{block:PostNotes}
+<div class="pagenotes">
+{PostNotes}
+</div>
+{/block:PostNotes}
+ 
+ 
+{/block:Posts}
+ 
+<div id="pagination">
+{block:Pagination}
+{block:PreviousPage}
+<a href="{PreviousPage}">&larr; previous </a>
+{/block:PreviousPage}
+ 
+ 
+{block:NextPage}
+<a href="{NextPage}">next &rarr;</a>
+{/block:NextPage}
+{/block:Pagination}
+</div>
+ 
+ 
+ 
+</div>
+ 
+</div>
+ 
+ 
+{block:ContentSource}
+<!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+ 
 </body>
-
-
-
+    <div id="box2" class="popup_block">
+    <iframe frameborder="0" height="200" id="ask_form" scrolling="yes" src="http://www.tumblr.com/ask_form/{Name}.tumblr.com" width="100%"></iframe>
+   
+</div>
+ 
+</div></div></div></div></div></div></div></div></div></div>
+ 
+ 
+   
+     <div style="position:fixed;bottom:2px; right:3px; font-size:9px; letter-spacing:1px; font-family:calibri;border:1px solid #000;padding:4px;"><a href="http://tietjens.co.vu/">BCV THEMES</a></center></div>
+     
+     
 </html>
-
