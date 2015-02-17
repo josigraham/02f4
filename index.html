@@ -163,54 +163,7 @@
      
      
     </div>
-     
-     
-     
-     
-    <div id="entries">
-     
- 
-     
-     
-    {block:Quote}
-     
-     
-    <div id="titlequote">“{Quote}”</div>
-    {block:Source}<div id="source">&mdash; {Source}</div>{/block:Source}
-    {/block:Quote}
-     
-     
-     
-    {block:Text}
-     
-    {block:Title}
-    <div id="title">{Title}</div>{/block:Title}
-    {Body}
-    {/block:Text}
-     
-    {block:Link}
-    <div id="title"><a href="{URL}">{Name}</a></div>{block:Description}{Description}{/block:Description}
-    {/block:Link}
-     
-    {block:Chat}
-    {block:Title}
-    <h1>{Title}</h1>
-    {/block:Title}
-    <div class="chat">
-    <ol>{block:Lines}
-    <li class="line {Alt}">
-    {block:Label}
-    <span class="label">
-    {Label}</span>
-    {/block:Label}{Line}</li>
-    {/block:Lines}
-    </ol></div>
-    {/block:Chat}
-     
-   
-     
-    {/block:Posts}
-     
+
     <div id="pagination">
     {block:Pagination}
     {block:PreviousPage}
