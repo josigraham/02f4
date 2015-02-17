@@ -1,226 +1,702 @@
-<script>
-    $(document).ready(function() {
-       $('.t').click(function() {
-          $('.same').fadeToggle(400);
-       });
-       $('.ab').click(function() {
-           $("#description").slideToggle(500);
-       });
-        $('.li').click(function() {
-           $("#links").slideToggle(500);
-       });
+
+    <!DOCTYPE html>
+    <head>
+
+    <title>{Title}</title>
+
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <link href="styles.css" rel="stylesheet"> 
+    <!--Default Variables-->
+
+    <meta name="image:Sidebar Image" content=""/>
+
+    <meta name="color:Background" content="#ffffff"/>
+    <meta name="color:Text" content="#7b7b7b"/>
+    <meta name="color:Link" content="#555555"/>
+    <meta name="color:title" content="#b997ce"/>
+    <meta name="color:post background" content="#f3f3f3"/>
+    <meta name="color:ask background" content="#dadada"/>
+    <meta name="color:post border" content="#cccccc"/>
+    <meta name="color:sidebar image border" content="#f3f3f3"/>
+    <meta name="color:post hover background" content="#dadada"/>
+    <meta name="color:tooltip background" content="#ffffff"/>
+    <meta name="color:Link background" content="#aeaeae"/>
+    <meta name="color:Link background hover" content="#aeaeae"/>
+    <meta name="color:title" content="#aeaeae"/>
+
+    <meta name="text:Body Font Size" content="10px"/>
+    <meta name="text:links Font Size" content="11px"/>
+    <meta name="text:Title Font Size" content="18px"/>
+
+     <meta name="if:Black and White Posts" content="0"/>
+     <meta name="if:500pxposts" content="0"/>
+
+    <meta name="text:Link1 Url" content="http://"/>
+    <meta name="text:Link1 Name" content="link 1"/>
+
+    <meta name="text:Link2 Url" content="http://"/>
+    <meta name="text:Link2 Name" content="link 2"/>
+
+    <meta name="text:Link3 Url" content="http://"/>
+    <meta name="text:Link3 Name" content="link 3"/>
+
+    <meta name="text:Link4 Url" content="http://"/>
+    <meta name="text:Link4 Name" content="link 4"/>
+
+    <meta name="text:Link5 Url" content="http://"/>
+    <meta name="text:Link5 Name" content="link 4"/>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+    <script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+
+    <script>
+
+    (function($){
+     
+    $(document).ready(function(){
+     
+    $("a[title]").style_my_tooltips({
+     
+    tip_follows_cursor:true,
+     
+    tip_delay_time:30,
+     
+    tip_fade_speed:300,
+     
+    attribute:"title"
+     
     });
-</script>
- 
-<script type="text/javascript">
-  WebFontConfig = {
-    google: { families: [ 'Pontano+Sans::latin' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })(); </script>
- 
-  <script type="text/javascript"
-src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-//
-$('a.poplight[href^=#]').click(function() {
-var popID = $(this).attr('rel'); //Get Popup Name
-var popURL = $(this).attr('href'); //Get Popup href to define size
-var query= popURL.split('?');
-var dim= query[1].split('&');
-var popWidth = dim[0].split('=')[1]; //Gets the first query string value
-$('#' + popID).fadeIn().css({ 'width': Number( popWidth ) }).prepend('<a href="#" class="close"></a>');
-var popMargTop = ($('#' + popID).height() + 80) / 2;
-var popMargLeft = ($('#' + popID).width() + 80) / 2;
-//Apply Margin to Popup
-$('#' + popID).css({
-'margin-top' : -popMargTop,
-'margin-left' : -popMargLeft
-});
-$('body').append('<div id="fade"></div>');
-$('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer - .css({'filter' : 'alpha(opacity=80)'})
-return false;
-});
-$('a.close, #fade').live('click', function() {
-$('#fade , .popup_block').fadeOut(function() {
-$('#fade, a.close').remove(); //fade them both out
-});
-return false;
-});
-});
-</script>
- 
-<body>
- 
-<div id="con">
- 
-<div id="sidebar">
-<div id="blogt">{Title}</div><br>
-<div id="sidebarim"><img src="{image:Sidebar Image}"></div>
-    <div class="otherlinks">
-<a href="/">home</a> &#9830;
-<a href="#?w=500" rel="box2" class="poplight">message</a> &#9830;
-<a class="ab">description</a> &#9830;
-<a class="li">links</a></div>
-<div id="description">{Description}</div>
- 
-<div id="links">
-<a href="{text:link1 url}">{text:link1 name}</a>
-<a href="{text:link2 url}">{text:link2 name}</a>
-<a href="{text:link3 url}">{text:link3 name}</a>
-<a href="{text:link4 url}">{text:link4 name}</a>
-<a href="{text:link5 url}">{text:link5 name}</a>
-</div>
- 
- 
- 
- 
- 
-</div>
- 
- 
- 
- 
-<div id="entries">
- 
-{block:Posts}
-<div id="posts">
- 
- 
-{block:Quote}
- 
- 
-<div id="titlequote">“{Quote}”</div>
-{block:Source}<div id="source">&mdash; {Source}</div>{/block:Source}
-{/block:Quote}
- 
- 
- 
-{block:Text}
- 
-{block:Title}
-<div id="title">{Title}</div>{/block:Title}
-{Body}
-{/block:Text}
- 
-{block:Link}
-<div id="title"><a href="{URL}">{Name}</a></div>{block:Description}{Description}{/block:Description}
-{/block:Link}
- 
-{block:Chat}
-{block:Title}
-<h1>{Title}</h1>
-{/block:Title}
-<div class="chat">
-<ol>{block:Lines}
-<li class="line {Alt}">
-{block:Label}
-<span class="label">
-{Label}</span>
-{/block:Label}{Line}</li>
-{/block:Lines}
-</ol></div>
-{/block:Chat}
- 
-{block:Photo}
-{LinkOpenTag}<img src="{block:if500pxposts}{PhotoURL-500}{/block:if500pxposts}
-{block:ifnot500pxposts}{PhotoURL-400}{/block:ifnot500pxposts}"
-{block:if500pxposts}width="500"{/block:if500pxposts}
-{block:ifnot500pxposts}width="400"{/block:ifnot500pxposts}
->{LinkCloseTag}
-{/block:Photo}
- 
-{block:Photoset}
-{block:if500pxposts}{Photoset-500}{/block:if500pxposts} {block:ifnot500pxposts}{Photoset-400}{/block:ifnot500pxposts}
-{/block:Photoset}
- 
-{block:Video}
-{block:if500pxposts}{Video-500}{/block:if500pxposts}{block:ifnot500pxposts}{Video-400}{/block:ifnot500pxposts}
-{/block:Video}
- 
-{block:Audio}
-<div class="player">{AudioPlayerWhite}</div>
-<div class="audioinfo">
-{block:TrackName}{TrackName}{/block:TrackName}{block:Artist}<br>{Artist}{/block:Artist}
-</div>
-{/block:Audio}
- 
-{block:Answer}
-<div class="q">
-<div class="as">{Asker} said: </div>
-{Question}</div>
-<div class="a">{Answer}</div>
-{/block:Answer}
- 
-{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
- 
-{block:Date}
-<div id="permalink">
-<a href="{Permalink}" >{12Hour}:{Minutes} {AmPm}</a>{block:NoteCount}<a href="{Permalink}">+ {NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}<a href="{ReblogParentURL}" title="{ReblogParentName}">via</a>{block:ContentSource}<a href="{ReblogRootURL}" title="{ReblogRootName}">source</a>{/block:ContentSource}{/block:RebloggedFrom}
-{block:HasTags}<div class="tags">{block:Tags}<a href="{TagUrl}">#{Tag}</a>{/block:Tags}</div>{/block:HasTags}
-</div>
-{/block:Date}
- 
- 
- 
-</div>
- 
- 
-{block:PostNotes}
-<div class="pagenotes">
-{PostNotes}
-</div>
-{/block:PostNotes}
- 
- 
-{/block:Posts}
- 
-<div id="pagination">
-{block:Pagination}
-{block:PreviousPage}
-<a href="{PreviousPage}">&larr; previous </a>
-{/block:PreviousPage}
- 
- 
-{block:NextPage}
-<a href="{NextPage}">next &rarr;</a>
-{/block:NextPage}
-{/block:Pagination}
-</div>
- 
- 
- 
-</div>
- 
-</div>
- 
- 
-{block:ContentSource}
-<!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
-width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
-{/block:SourceLogo}
-{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
-{/block:ContentSource}
- 
-</body>
-    <div id="box2" class="popup_block">
-    <iframe frameborder="0" height="200" id="ask_form" scrolling="yes" src="http://www.tumblr.com/ask_form/{Name}.tumblr.com" width="100%"></iframe>
-   
-</div>
- 
-</div></div></div></div></div></div></div></div></div></div>
- 
- 
-   
-     <div style="position:fixed;bottom:2px; right:3px; font-size:9px; letter-spacing:1px; font-family:calibri;border:1px solid #000;padding:4px;"><a href="http://tietjens.co.vu/">BCV THEMES</a></center></div>
+     
+    });
+     
+    })(jQuery);
+     
+    </script>
      
      
-</html>
+     
+     
+     
+     
+    <!--CSS customization here. -->
+     
+    <style type="text/css">
+     
+       *, body, a, a:hover {cursor: url("http://www.totallylayouts.com/cursors/random/tiny_cursor.png"), auto }
+       
+    ::-webkit-scrollbar {width: 6px; height: 4px; background:{color:background}; }
+    ::-webkit-scrollbar-thumb { background-color: #000000; }
+     
+    #s-m-t-tooltip{
+        position:absolute;
+        margin-top: 15px;
+        z-index:9999;
+        background:{color:tooltip background};
+        padding:3px;
+        border: solid 1px #aeaeae;
+    }
+     
+     
+     
+    /*basics*/
+    blockquote {padding:5px 0 5px 30px;
+    border-left:1px solid {color:text};
+    margin-left:30px;
+    }
+     
+    body {
+    background:{color:background};
+    color:{color:text};
+    font-family: 'Pontano Sans', sans-serif;
+    font-size: {text:Body Font Size};
+    text-align:justify;
+    margin:0;
+    line-height:16px;}
+     
+     
+    a {
+    color:{color:link};
+    text-decoration:none;
+    }
+     
+    a:hover {
+    text-decoration:underline;}
+     
+    img{opacity:1;
+    border:none;
+    text-decoration:none}
+     
+     
+    small {
+    font-size:9px;}
+     
+    big {
+    font-size:12px;}
+     
+     
+    #title {font-size:12px;
+    line-height:18px;
+    font-weight:bold;
+    margin-bottom:10px;
+    text-transform:uppercase;
+    text-align:left;}
+     
+     
+    /*sidebar*/
+    #sidebar {text-align:left;
+    position:fixed;
+    padding:5px;
+    margin-left:-250px;
+    margin-top:250px;
+    width:200px;
+    }
+     
+     
+    #sidebarim {margin-bottom:20px;
+    }
+     
+    #sidebarim img {width:200px;
+    height:100px;
+        opacity:1;
+    -webkit-transition-duration:0.7s;
+    -moz-transition-duration:0.7s;
+    -o-transition-duration:0.7s;
+    }
+     
+    #sidebar:hover #sidebarim img {
+        background-color:{color:background};
+        opacity:0.6;
+        -webkit-transition-duration:0.7s;
+    -moz-transition-duration:0.7s;
+    -o-transition-duration:0.7s;
+    }
+     
+     
+    #blogt {font-size: {text:Title Font Size};
+    color:{color:title};
+    letter-spacing:3px;
+    text-align:center;
+    font-weight:bold;
+        -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -ms-transition:all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+    }
+     
+    #blogt:hover {
+    letter-spacing:6px;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -ms-transition:all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+    }
+     
+    .otherlinks {
+        text-align:center;
+        width:200px;
+        font-size: {text:links Font Size}
+    }
+     
+    #links {
+        display:none;
+    width:200px;
+    margin-top:1px;
+    margin-bottom:5px;
+    font-family: 'Lora', serif;
+    font-size:10px;
+    letter-spacing:2px;
+    line-height:100%;
+    text-align:center;
+    text-transform:lowercase;
+    background-color:{color:Background};
+    }
+     
+    #links a {
+    display:block;
+    color:{color:Link};
+    padding:8px;
+    margin-bottom:-3px;
+    background-color:{color:LinkBG};
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    }
+     
+    #links a:hover {
+    background-color:{color:link Background hover};
+    padding-left:20px;
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    }
+     
+     
+     
+     
+     
+     
+    #description {
+        display:none;
+    margin:20px 0;
+    width:200px;
+    }
+     
+     
+    /*pagination*/
+    #pagination {
+    margin:50px 0;
+    text-transform:lowercase;
+    font-weight:bold;
+    }
+    #pagination a {
+    padding:0 15px;
+    }
+     
+    /*container*/
+    #con {
+    left:50%;
+    margin-left:-250px;
+    position:absolute;
+     
+    }
+     
+     
+     
+    /*posts*/
+     
+    #entries {
+    margin-top:75px;
+     {block:if500pxposts}width:500px;{/block:if500pxposts}
+        {block:ifnot500pxposts}width:400px;{/block:ifnot500pxposts}
+        {block:IfBlackandWhitePosts}
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition:all 0.5s;
+    -moz-transition:all 0.5s;
+    -ms-transition:all 0.5s;
+    -o-transition:all 0.5s;
+    transition:all 0.5s;
+    }
+     
+    #entries:hover {
+    background-color:transparent;
+    -webkit-transition:all 0.5s;
+    -moz-transition:all 0.5s;
+    -ms-transition:all 0.5s;
+    -o-transition:all 0.5s;
+    transition:all 0.5s;
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    filter: grayscale(0%);
+    {/block:IfBlackandWhitePosts}}
+     
+     
+     
+     
+    #posts {
+     {block:if500pxposts}width:500px;{/block:if500pxposts}
+        {block:ifnot500pxposts}width:400px;{/block:ifnot500pxposts}
+    {block:IndexPage}
+    margin-bottom:75px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    margin-bottom:50px;
+    {/block:PermalinkPage}
+    padding:15px;
+    border:1px solid {color:post border};
+        background:{color:background};
+       -webkit-transition:all 0.7s;
+        -moz-transition:all 0.7s;
+        -ms-transition:all 0.7s;
+        -o-transition:all 0.7s;
+        transition:all 0.7s;
+    }
+     
+    #posts:hover {  border:1px solid {color:background};
+        background:{color:post hover background};
+        -webkit-transition:all 0.7s;
+        -moz-transition:all 0.7s;
+        -ms-transition:all 0.7s;
+        -o-transition:all 0.7s;
+        transition:all 0.7s;}
+    #posts img {
+    max-width:400px;
+     
+    }
+     
+    #posts img, #posts li, #posts blockquote {max-width: 100%;}
+    .caption {width:100%;
+    padding:1px;
+    margin-top:10px;
+     
+    }
+     
+    /*quote*/
+     
+    #titlequote{text-align:left;
+    font-size:14px;
+    line-height:18px;
+    font-weight:bold;
+    }
+    #source {
+    margin-top:15px;
+    margin-left:15px;}
+     
+    /*audio*/
+     
+    .player {
+    width:25px;
+    height:25px;
+    overflow:hidden;
+    position:absolute;
+    background:white;}
+     
+    .audioinfo {
+    margin-left:50px;
+    }
+     
+     
+    /*asks*/
+    .q {margin-bottom:10px;
+    background-color:{color:ask background};
+    border: 1px dotted;
+    padding:3px;
+    }
+    .as {
+    font-weight:bold;}
+     
+    .a {
+    margin-top:10px;
+    }
+     
+     
+    /*chat*/
+     
+    .chat ol {
+    padding:0;
+    list-style:none;
+    }
+    .line {padding:5px 0;}
+     
+    .label {font-weight:bold;
+    }
+     
+     
+    .standardlinks{
+    text-transform:lowercase;
+    }
+    .standardlinks a {margin-right:5px;
+    cursor:pointer;    
+    }
+    .standardlinks img {margin-right:5px;
+    }
+     
+     
+    /*permalink and notes*/
+     
+    #permalink {
+    margin-top:15px;
+    font-size:9px;
+    text-transform:uppercase;
+    }
+    #permalink a {margin-right:10px;
+    }
+     
+     
+    .tags {
+    word-break:break-all;
+    text-align:right;
+    font-size:9px;
+    border-top: solid 1px {color:post border};
+    padding:2px;
+    }
+     
+    .pagenotes {
+    {block:IndexPage}
+    display: none!important;
+    {/block:IndexPage}
+    width:400px;
+    text-align:left;
+     
+    }
+    .pagenotes img {
+    display:none!important;}
+    .pagenotes li {
+    list-style-type:none;
+    padding:5px 0px;
+    text-align:left;
+    margin:0 0 0 -40px;
+    }
+     
+    .popup_block{
+        display:none;
+        background:#fff;
+        padding:20px;
+        border:1px solid #eee;  /* if you want a solid white pop-up, delete this */
+        float:left;
+        text-align:center;
+        position:fixed;
+        top:50%;left:50%;
+        z-index: 99999;
+        -webkit-box-shadow: 0px 0px 20px #000; /* delete for solid white */
+        -moz-box-shadow: 0px 0px 20px #000; /* delete for solid white */
+        box-shadow: 0px 0px 20px #000; /* delete for solid white */
+    }
+     
+    *html #fade {position: absolute;}
+    *html .popup_block {position: absolute;}
+    #fade {
+        display:none;
+        position:fixed;
+        left:0px;
+        top:0px;
+        width:100%;
+        height:100%;
+        z-index:9999;
+        background:#000; /* change to #fff for solid white */
+        opacity:0.7; /* change to opacity:1; */
+    }
+     
+     
+    {CustomCSS}
+     
+     
+    </style>
+     
+     
+     
+    </head>
+     
+    <script>
+        $(document).ready(function() {
+           $('.t').click(function() {
+              $('.same').fadeToggle(400);
+           });
+           $('.ab').click(function() {
+               $("#description").slideToggle(500);
+           });
+            $('.li').click(function() {
+               $("#links").slideToggle(500);
+           });
+        });
+    </script>
+     
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Pontano+Sans::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })(); </script>
+     
+      <script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    //
+    $('a.poplight[href^=#]').click(function() {
+    var popID = $(this).attr('rel'); //Get Popup Name
+    var popURL = $(this).attr('href'); //Get Popup href to define size
+    var query= popURL.split('?');
+    var dim= query[1].split('&');
+    var popWidth = dim[0].split('=')[1]; //Gets the first query string value
+    $('#' + popID).fadeIn().css({ 'width': Number( popWidth ) }).prepend('<a href="#" class="close"></a>');
+    var popMargTop = ($('#' + popID).height() + 80) / 2;
+    var popMargLeft = ($('#' + popID).width() + 80) / 2;
+    //Apply Margin to Popup
+    $('#' + popID).css({
+    'margin-top' : -popMargTop,
+    'margin-left' : -popMargLeft
+    });
+    $('body').append('<div id="fade"></div>');
+    $('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer - .css({'filter' : 'alpha(opacity=80)'})
+    return false;
+    });
+    $('a.close, #fade').live('click', function() {
+    $('#fade , .popup_block').fadeOut(function() {
+    $('#fade, a.close').remove(); //fade them both out
+    });
+    return false;
+    });
+    });
+    </script>
+     
+    <body>
+     
+    <div id="con">
+     
+    <div id="sidebar">
+    <div id="blogt">{Title}</div><br>
+    <div id="sidebarim"><img src="{image:Sidebar Image}"></div>
+        <div class="otherlinks">
+    <a href="/">home</a> &#9830;
+    <a href="#?w=500" rel="box2" class="poplight">message</a> &#9830;
+    <a class="ab">description</a> &#9830;
+    <a class="li">links</a></div>
+    <div id="description">{Description}</div>
+     
+    <div id="links">
+    <a href="{text:link1 url}">{text:link1 name}</a>
+    <a href="{text:link2 url}">{text:link2 name}</a>
+    <a href="{text:link3 url}">{text:link3 name}</a>
+    <a href="{text:link4 url}">{text:link4 name}</a>
+    <a href="{text:link5 url}">{text:link5 name}</a>
+    </div>
+     
+     
+     
+     
+     
+    </div>
+     
+     
+     
+     
+    <div id="entries">
+     
+    {block:Posts}
+    <div id="posts">
+     
+     
+    {block:Quote}
+     
+     
+    <div id="titlequote">“{Quote}”</div>
+    {block:Source}<div id="source">&mdash; {Source}</div>{/block:Source}
+    {/block:Quote}
+     
+     
+     
+    {block:Text}
+     
+    {block:Title}
+    <div id="title">{Title}</div>{/block:Title}
+    {Body}
+    {/block:Text}
+     
+    {block:Link}
+    <div id="title"><a href="{URL}">{Name}</a></div>{block:Description}{Description}{/block:Description}
+    {/block:Link}
+     
+    {block:Chat}
+    {block:Title}
+    <h1>{Title}</h1>
+    {/block:Title}
+    <div class="chat">
+    <ol>{block:Lines}
+    <li class="line {Alt}">
+    {block:Label}
+    <span class="label">
+    {Label}</span>
+    {/block:Label}{Line}</li>
+    {/block:Lines}
+    </ol></div>
+    {/block:Chat}
+     
+    {block:Photo}
+    {LinkOpenTag}<img src="{block:if500pxposts}{PhotoURL-500}{/block:if500pxposts}
+    {block:ifnot500pxposts}{PhotoURL-400}{/block:ifnot500pxposts}"
+    {block:if500pxposts}width="500"{/block:if500pxposts}
+    {block:ifnot500pxposts}width="400"{/block:ifnot500pxposts}
+    >{LinkCloseTag}
+    {/block:Photo}
+     
+    {block:Photoset}
+    {block:if500pxposts}{Photoset-500}{/block:if500pxposts} {block:ifnot500pxposts}{Photoset-400}{/block:ifnot500pxposts}
+    {/block:Photoset}
+     
+    {block:Video}
+    {block:if500pxposts}{Video-500}{/block:if500pxposts}{block:ifnot500pxposts}{Video-400}{/block:ifnot500pxposts}
+    {/block:Video}
+     
+    {block:Audio}
+    <div class="player">{AudioPlayerWhite}</div>
+    <div class="audioinfo">
+    {block:TrackName}{TrackName}{/block:TrackName}{block:Artist}<br>{Artist}{/block:Artist}
+    </div>
+    {/block:Audio}
+     
+    {block:Answer}
+    <div class="q">
+    <div class="as">{Asker} said: </div>
+    {Question}</div>
+    <div class="a">{Answer}</div>
+    {/block:Answer}
+     
+    {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+     
+    {block:Date}
+    <div id="permalink">
+    <a href="{Permalink}" >{12Hour}:{Minutes} {AmPm}</a>{block:NoteCount}<a href="{Permalink}">+ {NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}<a href="{ReblogParentURL}" title="{ReblogParentName}">via</a>{block:ContentSource}<a href="{ReblogRootURL}" title="{ReblogRootName}">source</a>{/block:ContentSource}{/block:RebloggedFrom}
+    {block:HasTags}<div class="tags">{block:Tags}<a href="{TagUrl}">#{Tag}</a>{/block:Tags}</div>{/block:HasTags}
+    </div>
+    {/block:Date}
+     
+     
+     
+    </div>
+     
+     
+    {block:PostNotes}
+    <div class="pagenotes">
+    {PostNotes}
+    </div>
+    {/block:PostNotes}
+     
+     
+    {/block:Posts}
+     
+    <div id="pagination">
+    {block:Pagination}
+    {block:PreviousPage}
+    <a href="{PreviousPage}">&larr; previous </a>
+    {/block:PreviousPage}
+     
+     
+    {block:NextPage}
+    <a href="{NextPage}">next &rarr;</a>
+    {/block:NextPage}
+    {/block:Pagination}
+    </div>
+     
+     
+     
+    </div>
+     
+    </div>
+     
+     
+    {block:ContentSource}
+    <!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+    width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+    {/block:SourceLogo}
+    {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+    {/block:ContentSource}
+     
+    </body>
+        <div id="box2" class="popup_block">
+        <iframe frameborder="0" height="200" id="ask_form" scrolling="yes" src="http://www.tumblr.com/ask_form/{Name}.tumblr.com" width="100%"></iframe>
+       
+    </div>
+     
+    </div></div></div></div></div></div></div></div></div></div>
+     
+     
+       
+         <div style="position:fixed;bottom:2px; right:3px; font-size:9px; letter-spacing:1px; font-family:calibri;border:1px solid #000;padding:4px;"><a href="http://tietjens.co.vu/">BCV THEMES</a></center></div>
+         
+         
+    </html>
+
