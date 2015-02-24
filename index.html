@@ -1,179 +1,44 @@
-
-    <!DOCTYPE html>
-    <head>
-
-    <title>{Welcome}</title>
-
-    <link rel="shortcut icon" href="{Favicon}">
-    <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link href="styles.css" rel="stylesheet"> 
- 
-
-    <meta name="image:Sidebar Image" content=""/>
-
-    <meta name="color:Background" content="#ffffff"/>
-    <meta name="color:Text" content="#7b7b7b"/>
-    <meta name="color:Link" content="#555555"/>
-    <meta name="color:title" content="#b997ce"/>
-    <meta name="color:sidebar image border" content="#f3f3f3"/>
-    <meta name="color:Link background" content="#aeaeae"/>
-    <meta name="color:Link background hover" content="#aeaeae"/>
-    <meta name="color:title" content="#aeaeae"/>
-
-    <meta name="text:Body Font Size" content="10px"/>
-    <meta name="text:links Font Size" content="11px"/>
-    <meta name="text:Title Font Size" content="18px"/>
-
-
-    <meta name="text:Link1 Url" content="http://"/>
-    <meta name="text:Link1 Name" content="link 1"/>
-
-    <meta name="text:Link2 Url" content="http://"/>
-    <meta name="text:Link2 Name" content="link 2"/>
-
-    <meta name="text:Link3 Url" content="http://"/>
-    <meta name="text:Link3 Name" content="link 3"/>
-
-    <meta name="text:Link4 Url" content="http://"/>
-    <meta name="text:Link4 Name" content="link 4"/>
-
-    <meta name="text:Link5 Url" content="http://"/>
-    <meta name="text:Link5 Name" content="link 4"/>
-
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-
-    <script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
-
-    <script>
-
-    (function($){
-     
-    $(document).ready(function(){
-     
-    $("a[title]").style_my_tooltips({
-     
-    tip_follows_cursor:true,
-     
-    tip_delay_time:30,
-     
-    tip_fade_speed:300,
-     
-    attribute:"title"
-     
-    });
-     
-    });
-     
-    })(jQuery);
-     
-    </script>
-    </head>
-  
-    <script>
-        $(document).ready(function() {
-           $('.t').click(function() {
-              $('.same').fadeToggle(400);
-           });
-           $('.ab').click(function() {
-               $("#description").slideToggle(500);
-           });
-            $('.li').click(function() {
-               $("#links").slideToggle(500);
-           });
-        });
-    </script>
-     
-    <script type="text/javascript">
-      WebFontConfig = {
-        google: { families: [ 'Pontano+Sans::latin' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })(); </script>
-     
-      <script type="text/javascript"
-    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function() {
-    //
-    $('a.poplight[href^=#]').click(function() {
-    var popID = $(this).attr('rel'); //Get Popup Name
-    var popURL = $(this).attr('href'); //Get Popup href to define size
-    var query= popURL.split('?');
-    var dim= query[1].split('&');
-    var popWidth = dim[0].split('=')[1]; //Gets the first query string value
-    $('#' + popID).fadeIn().css({ 'width': Number( popWidth ) }).prepend('<a href="#" class="close"></a>');
-    var popMargTop = ($('#' + popID).height() + 80) / 2;
-    var popMargLeft = ($('#' + popID).width() + 80) / 2;
-    //Apply Margin to Popup
-    $('#' + popID).css({
-    'margin-top' : -popMargTop,
-    'margin-left' : -popMargLeft
-    });
-    $('body').append('<div id="fade"></div>');
-    $('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer - .css({'filter' : 'alpha(opacity=80)'})
-    return false;
-    });
-    $('a.close, #fade').live('click', function() {
-    $('#fade , .popup_block').fadeOut(function() {
-    $('#fade, a.close').remove(); //fade them both out
-    });
-    return false;
-    });
-    });
-    </script>
-     
-    <body>
-     
-    <div id="con">
-     
-    <div id="sidebar">
-    <div id="blogt">Josi Graham</div><br>
-    <div id="sidebarim"><img src="{image:Sidebar Image}"></div>
-        <div class="otherlinks">
-    <a href="/">home</a>
-    <a class="ab">description</a>
-    <a class="li">links</a></div>
-    <div id="description">{Description}</div>
-     
-    <div id="links">
-    <a href="{text:link1 url}">About</a>
-    <a href="{text:link2 url}">Portfolio</a>
-    <a href="{text:link3 url}">Contact</a>
-    <a href="{text:link4 url}">{text:link4 name}</a>
-    <a href="{text:link5 url}">{text:link5 name}</a>
-    </div>
-     
-     
-     
-     
-     
-    </div>
-
-
-
-     
-     
- 
-    </body>
-        <div id="box2" class="popup_block">
-        <iframe frameborder="0" height="200" id="ask_form" scrolling="yes" src="http://www.tumblr.com/ask_form/{Name}.tumblr.com" width="100%"></iframe>
-       
-    </div>
-     
-    </div></div></div></div></div></div></div></div></div></div>
-     
-     
-       
-         <div style="position:fixed;bottom:2px; right:3px; font-size:9px; letter-spacing:1px; font-family:calibri;border:1px solid #000;padding:4px;"><a href="http://tietjens.co.vu/">BCV THEMES</a></center></div>
-         
-         
-    </html>
-
+<!doctype html>
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav>
+<a href="index.html"> Home </a> | <a href="about.html"> About </a> | <a href="portfolio.html"> Portfolio </a> | <a href="resume.html"> Resume </a> | <a href="table.html"> Table </a>  | <a href="contact.html"> Contact </a> 
+</nav>
+<header>
+<img class="spotlight" alt="" aria-describedby="fbPhotosSnowliftCaption" aria-busy="false" src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/10437458_339541722894716_4428735025354821727_n.jpg?oh=f6fe2e7808268ff242ec76cf2ad591aa&amp;oe=554AA022&amp;__gda__=1435550891_3810256c4aa23d946417a85e2121e657" style="width: 288px; height: 432px;">
+<h1>Eliezer Bulnes</h1>
+<h2>Portfolio</h2>
+</header>
+<section>
+<button>See my work.</button>
+</section>
+<section id="features">
+<p>
+<i class="fa fa-cogs"></i>
+<br>
+Web Design.
+</p>
+<p><i class="fa fa-laptop"></i>
+<br>
+Web Development.</p>
+<p>
+<i class="fa fa-mobile"></i>
+<br>
+Mobile Apps.</p>
+</section>
+<footer>
+<a href="http://www.twitter.com/rima_gerhard">
+<img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/43-twitter-32.png">
+</a>
+<a href="http://www.linkedin.com/in/rimagerhard">
+<img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-32.png">
+</a>
+<img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/78-instagram-32.png">
+</footer>
+</body>
+</html>
