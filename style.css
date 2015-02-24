@@ -115,9 +115,9 @@ text-decoration: none;
    background: -ms-linear-gradient(top, #00ffff, #5c5c5c);
    background: -o-linear-gradient(top, #00ffff, #5c5c5c);
    padding: 7.5px 15px;
-   -webkit-border-radius: 9px;
-   -moz-border-radius: 9px;
-   border-radius: 9px;
+   -webkit-border-radius: 0px;
+   -moz-border-radius: 0px;
+   border-radius: 0px;
    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
    box-shadow: rgba(0,0,0,1) 0 1px 0;
@@ -137,3 +137,4 @@ text-decoration: none;
    border-top-color: #000000;
    background: #000000;
    }
+
