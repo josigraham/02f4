@@ -187,3 +187,16 @@ img.btn_close {
 *html .popup_block {
         position: absolute;
 }
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #00ffff;
+  outline: 1px solid slategrey;
+}
