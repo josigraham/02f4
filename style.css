@@ -189,7 +189,7 @@ img.btn_close {
 }
 
 body::-webkit-scrollbar {
-    width: .25em;
+    width: .75em;
 }
  
 body::-webkit-scrollbar-track {
