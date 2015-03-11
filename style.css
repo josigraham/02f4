@@ -189,7 +189,7 @@ img.btn_close {
 }
 
 body::-webkit-scrollbar {
-    width: 1em;
+    width: .25em;
 }
  
 body::-webkit-scrollbar-track {
@@ -198,5 +198,5 @@ body::-webkit-scrollbar-track {
  
 body::-webkit-scrollbar-thumb {
   background-color: #00ffff;
-  outline: 0.25px solid slategrey;
+  outline: .25px solid slategrey;
 }
