@@ -112,9 +112,9 @@ text-decoration: none;
 }
 
  table{
-width: 1134px;
+width: 390px;
 margin: 0 auto;
-padding: 1px black;
+padding: .25px black;
 } 
 .button {
    border-top: 1px solid #000000;
