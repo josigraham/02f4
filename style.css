@@ -110,8 +110,13 @@ height:60px;   /* Height of the footer */
 #footer a {
 text-decoration: none;
 }
+ table {
+width: 1390px;
+margin: 0 auto;
+padding: 1px black;
+} 
 
- table{
+ table 2{
 width: 390px;
 margin: 0 auto;
 padding: .25px black;
