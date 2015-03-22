@@ -193,5 +193,5 @@ img.btn_close {
 
 
 
-::-webkit-scrollbar {width: 6px; height: 4px; background: #00ffff; }
-::-webkit-scrollbar-thumb { background-color: #ffffff; -webkit-border-radius: 1ex; }
+::-webkit-scrollbar {width: 6px; height: 4px; background: #ffffff; }
+::-webkit-scrollbar-thumb { background-color: ##00ffff; -webkit-border-radius: 1ex; }
