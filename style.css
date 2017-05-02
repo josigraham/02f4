@@ -89,8 +89,8 @@ transition: .4s;
 -moz-transition-duration: .4s;
 }
 #top a:hover {
-color: #000000;
-background-color: #00ffff;
+color: #FFF;
+background-color: #000;
 font-size: 20px;
 transition: .4s;
 -o-transition-transition: .4s;
