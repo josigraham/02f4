@@ -77,8 +77,8 @@ text-align: center;
 #top a {
 margin: 0;
 padding: 5px;
-background-color: #ffffff;
-color: #000000;
+background-color: #000;
+color: #FFF;
 text-align: center;
 vertical-align: middle;
 overflow: hidden;
@@ -89,8 +89,8 @@ transition: .4s;
 -moz-transition-duration: .4s;
 }
 #top a:hover {
-color: #FFF;
-background-color: #000;
+color: #000;
+background-color: #FFF;
 font-size: 20px;
 transition: .4s;
 -o-transition-transition: .4s;
