@@ -42,12 +42,7 @@ h2{
 color: #000000;
 font-family: 'Suranna', serif;
 }
-section{
-text-align: center;
-background-image: url(https://s3.amazonaws.com/StartupStockPhotos/20140808_StartupStockPhotos/53.jpg);
-height: 400px;
-background-size: cover;
-}
+
 #features {
 background-image: none;
 background-color: #000000;
